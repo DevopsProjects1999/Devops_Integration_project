@@ -1,28 +1,100 @@
-# genai-tutor/genai-tutor/templates/index.html
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>GenAI Tutor</title>
+    <meta charset="UTF-8">
+    <title>🧠 DevOps | Python | Linux Tutor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f6f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 720px;
+            margin: 40px auto;
+            padding: 30px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 25px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+            resize: vertical;
+        }
+
+        button {
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            font-size: 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .output {
+            background-color: #f1f1f1;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 5px solid #007bff;
+            white-space: pre-wrap;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 13px;
+            color: #999;
+            margin-top: 30px;
+        }
+    </style>
 </head>
 <body>
-    <h1>🧠 DevOps | Python | Linux Tutor</h1>
-    <form method="post">
-        <label>Select Topic:</label>
-        <select name="topic">
-            <option value="Python">Python</option>
-            <option value="Linux">Linux</option>
-            <option value="DevOps">DevOps</option>
-        </select><br><br>
+    <div class="container">
+        <h1>🧠 GenAI Tutor — DevOps | Python | Linux</h1>
 
-        <label>Ask a Question:</label><br>
-        <textarea name="question" rows="4" cols="60"></textarea><br><br>
-        <input type="submit" value="Explain">
-    </form>
+        <form method="post">
+            <label for="question"><strong>Ask a Question:</strong></label>
+            <textarea name="question" placeholder="e.g., What is a Docker container?">{{ request.form.question or '' }}</textarea>
+            <button type="submit">Explain</button>
+        </form>
 
-    {% if explanation %}
-        <h3>🧾 Explanation:</h3>
-        <p>{{ explanation }}</p>
-    {% endif %}
+        {% if explanation %}
+        <div class="output">
+            🧾 <strong>Explanation:</strong><br><br>
+            {{ explanation }}
+        </div>
+        {% endif %}
+    </div>
+
+    <footer>
+        &copy; 2025 GenAI Tutor. Made with ❤️ for learners.
+    </footer>
 </body>
 </html>
-
