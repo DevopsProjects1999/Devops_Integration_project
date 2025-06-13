@@ -1,0 +1,28 @@
+# genai-tutor/genai-tutor/templates/index.html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GenAI Tutor</title>
+</head>
+<body>
+    <h1>🧠 DevOps | Python | Linux Tutor</h1>
+    <form method="post">
+        <label>Select Topic:</label>
+        <select name="topic">
+            <option value="Python">Python</option>
+            <option value="Linux">Linux</option>
+            <option value="DevOps">DevOps</option>
+        </select><br><br>
+
+        <label>Ask a Question:</label><br>
+        <textarea name="question" rows="4" cols="60"></textarea><br><br>
+        <input type="submit" value="Explain">
+    </form>
+
+    {% if explanation %}
+        <h3>🧾 Explanation:</h3>
+        <p>{{ explanation }}</p>
+    {% endif %}
+</body>
+</html>
+

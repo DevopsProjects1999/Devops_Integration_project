@@ -1,0 +1,5 @@
+# genai-tutor/genai-tutor/requirements.txt
+
+flask==2.3.3
+openai==1.25.0
+python-dotenv==1.0.1
